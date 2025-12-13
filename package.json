@@ -17,6 +17,7 @@
     "tailwindStylesheet": "app/globals.css"
   },
   "dependencies": {
+    "@ai-sdk/azure": "^2.0.88",
     "@ai-sdk/mcp": "^0.0.11",
     "@ai-sdk/openai": "^2.0.75",
     "@assistant-ui/react": "^0.11.47",

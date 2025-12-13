@@ -15,6 +15,9 @@ export const Assistant = () => {
     transport: new AssistantChatTransport({
       api: "/api/chat",
     }),
+    onError: (error: Error) => {
+      console.log("useChatRuntime error: ", error);
+    }
   });
 
   return (

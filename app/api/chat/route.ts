@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai";
+import { azure, createAzure } from "@ai-sdk/azure";
 import { frontendTools } from "@assistant-ui/react-ai-sdk";
 import { streamText, convertToModelMessages, type UIMessage } from "ai";
 import { experimental_createMCPClient as createMCPClient } from "@ai-sdk/mcp";
@@ -9,7 +9,7 @@ const mcpClient = await createMCPClient({
   // TODO adjust this to point to your MCP server URL
   transport: {
     type: "http",
-    url: "http://localhost:8000/mcp",
+    url: process.env.MCP_SERVER_URL || "http://localhost:9000/mcp",
   },
 });
 
@@ -23,7 +23,7 @@ export async function POST(req: Request) {
   }: { messages: UIMessage[]; system?: string; tools?: any } = await req.json();
 
   const result = streamText({
-    model: openai.responses("gpt-5-nano"),
+    model: azure("gpt-4.1-mini"),
     messages: convertToModelMessages(messages),
     system,
     tools: {
@@ -31,12 +31,7 @@ export async function POST(req: Request) {
       ...frontendTools(tools),
       // add backend tools here
     },
-    providerOptions: {
-      openai: {
-        reasoningEffort: "low",
-        reasoningSummary: "auto",
-      },
-    },
+    providerOptions: {},
   });
 
   return result.toUIMessageStreamResponse({
