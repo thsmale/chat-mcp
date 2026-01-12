@@ -8,6 +8,7 @@ import {
 import { Thread } from "@/components/assistant-ui/thread";
 import { ThreadList } from "@/components/assistant-ui/thread-list";
 import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
+import Header from "@/components/header";
 
 export const Assistant = () => {
   const runtime = useChatRuntime({
@@ -22,9 +23,12 @@ export const Assistant = () => {
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <div className="grid h-dvh grid-cols-[200px_1fr] gap-x-2 px-4 py-4">
-        <ThreadList />
-        <Thread />
+      <div className='flex h-dvh flex-col'>
+        <Header />
+        <div className="grid h-dvh grid-cols-[200px_1fr] gap-x-2 px-4 py-4">
+          <ThreadList />
+          <Thread />
+        </div>
       </div>
     </AssistantRuntimeProvider>
   );
