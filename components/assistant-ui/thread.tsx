@@ -96,7 +96,7 @@ const ThreadWelcome: FC = () => {
             exit={{ opacity: 0, y: 10 }}
             className="aui-thread-welcome-message-motion-1 text-2xl font-semibold"
           >
-            Hello there!
+            USA Spending Assistant
           </m.div>
           <m.div
             initial={{ opacity: 0, y: 10 }}
@@ -105,7 +105,7 @@ const ThreadWelcome: FC = () => {
             transition={{ delay: 0.1 }}
             className="aui-thread-welcome-message-motion-2 text-2xl text-muted-foreground/65"
           >
-            How can I help you today?
+            Ask me about the federal budget.
           </m.div>
         </div>
       </div>
@@ -119,24 +119,24 @@ const ThreadSuggestions: FC = () => {
     <div className="aui-thread-welcome-suggestions grid w-full gap-2 pb-4 @md:grid-cols-2">
       {[
         {
-          title: "What's the weather",
-          label: "in San Francisco?",
-          action: "What's the weather in San Francisco?",
+          title: "Who received contracts",
+          label: "from the NSA?",
+          action: "Who received contracts from the NSA?",
         },
         {
-          title: "Explain React hooks",
-          label: "like useState and useEffect",
-          action: "Explain React hooks like useState and useEffect",
+          title: "What is the budget history",
+          label: "from 2018 to 2025?",
+          action: "What is the budget history from 2018 to 2023?",
         },
         {
-          title: "Write a SQL query",
-          label: "to find top customers",
-          action: "Write a SQL query to find top customers",
+          title: "Show spending trends",
+          label: "for the Health Department.",
+          action: "Show spending trends for the Health Department.",
         },
         {
-          title: "Create a meal plan",
-          label: "for healthy weight loss",
-          action: "Create a meal plan for healthy weight loss",
+          title: "List the top 5",
+          label: "government agencies by funding.",
+          action: "List the top 5 government agencies by funding.",
         },
       ].map((suggestedAction, index) => (
         <m.div
