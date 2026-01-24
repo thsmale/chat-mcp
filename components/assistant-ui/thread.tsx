@@ -17,6 +17,7 @@ import {
   ErrorPrimitive,
   MessagePrimitive,
   ThreadPrimitive,
+  useAssistantInstructions,
 } from "@assistant-ui/react";
 
 import type { FC } from "react";
@@ -37,6 +38,11 @@ import {
 import { cn } from "@/lib/utils";
 
 export const Thread: FC = () => {
+
+  let instructions = "Your task is to answer questions about the USA spending API. ";
+  instructions += `The local timezone is ${new Date().toString()}`;
+  useAssistantInstructions(instructions);
+
   return (
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
