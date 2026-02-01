@@ -22,7 +22,6 @@ const formatResult= (originalResult) => {
   }
   if (result.isError) {
     // Maybe show red or something.
-    console.error("Error occurred ", result)
     try {
       const prettyFormat = JSON.stringify(result, null, 2);
       return prettyFormat;
@@ -32,7 +31,6 @@ const formatResult= (originalResult) => {
     }
   }
   if (Array.isArray(result.content) === false) {
-    console.warn("Tool response was not expected structure, not an array.")
     try {
       const prettyFormat = JSON.stringify(result);
       return prettyFormat;
