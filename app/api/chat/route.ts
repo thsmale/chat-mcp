@@ -1,7 +1,11 @@
 import { azure, createAzure } from "@ai-sdk/azure";
 import { frontendTools } from "@assistant-ui/react-ai-sdk";
 import { streamText, convertToModelMessages, type UIMessage } from "ai";
-import { experimental_createMCPClient as createMCPClient } from "@ai-sdk/mcp";
+import {
+  experimental_createMCPClient as createMCPClient,
+  experimental_listPrompts as listPrompts,
+  experimental_getPrompt as getPrompt,
+} from "@ai-sdk/mcp";
 
 export const maxDuration = 30;
 
@@ -14,6 +18,12 @@ const mcpClient = await createMCPClient({
 });
 
 const mcpTools = await mcpClient.tools();
+
+const prompts = await mcpClient.listPrompts()
+
+const prompt = await mcpClient.getPrompt({
+  name: 'award_type_codes_guide'
+})
 
 export async function POST(req: Request) {
   const {

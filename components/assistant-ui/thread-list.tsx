@@ -13,23 +13,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 export const ThreadList: FC = () => {
   return (
     <ThreadListPrimitive.Root className="aui-root aui-thread-list-root flex flex-col items-stretch gap-1.5">
-      <ThreadListNew />
       <ThreadListItems />
     </ThreadListPrimitive.Root>
-  );
-};
-
-const ThreadListNew: FC = () => {
-  return (
-    <ThreadListPrimitive.New asChild>
-      <Button
-        className="aui-thread-list-new flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start hover:bg-muted data-active:bg-muted"
-        variant="ghost"
-      >
-        <PlusIcon />
-        New Thread
-      </Button>
-    </ThreadListPrimitive.New>
   );
 };
 
